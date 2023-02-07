@@ -1,0 +1,150 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  background-color: #f4d03f;
+  background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
+  background-size: cover;
+  background-repeat: repeat;
+  height: 100vh;
+  width: 100vw;
+  color: beige;
+  font-weight: 600;
+}
+
+.container {
+  margin: 0 auto;
+  margin-top: 10vh;
+  width: 400px;
+  height: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 80px;
+  height: 40px;
+  background-color: #f4d03f;
+  cursor: pointer;
+  border: 0;
+  font-size: 1.2rem;
+  color: #16a085;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.board-container,
+.win {
+  background-color: #f4d03f;
+  background-image: linear-gradient(132deg, #16a085 0%, #f4d03f 100%);
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  padding: 20px 20px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+}
+.board {
+  position: relative;
+}
+.board.flipped .board-container {
+  transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.board.flipped .win {
+  transform: rotateY(0) rotateZ(0);
+}
+.win {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #fdf8e6;
+  transform: rotateY(180deg) rotateZ(50deg);
+}
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #3d3d3d;
+  font-size: 1.6rem;
+}
+.highlight {
+  color: #16a085;
+}
+.grid {
+  display: grid;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.top {
+  display: flex;
+  margin-bottom: 2.2rem;
+}
+
+.right {
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cards {
+  height: 75px;
+  width: 75px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #282a3a;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+}
+
+.card-back {
+  background: #fdf8e6;
+  transform: rotateY(180deg) rotateZ(50deg);
+  user-select: none;
+}
+
+.cards.flipped .card-front {
+  transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.cards.flipped .card-back {
+  transform: rotateY(0) rotateZ(0);
+}
+
+.emoji {
+  font-size: 35px;
+  align-items: center;
+  padding-top: 15px;
+}
+.disabled {
+  color: #757575;
+}
